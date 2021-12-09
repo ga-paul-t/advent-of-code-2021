@@ -8,6 +8,15 @@ I will attempt to write as elegant and performant a solution as possible<sup>2</
 </br>
 <sup>2. I don't profess to being an expert in any of these languages</sup>
 
+## Quick Start
+
+To build and run Go solutions:
+
+```sh
+cd go && make
+./bin/aoc-2021 --benchmark
+```
+
 ## Results
 
 All puzzles were benchmarked on the following laptop:
