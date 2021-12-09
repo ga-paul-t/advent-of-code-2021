@@ -28,6 +28,6 @@ MacBook Pro (2019)
 16 GB 2667 MHz DDR4
 ```
 
-| Go    | Part A                                        | Part B | Rust  | Part A | Part B |
-| :---- | :-------------------------------------------- | :----- | :---- | :----- | :----- |
-| Day 1 | [`0.046ms`](./go/internal/aoc/day01a/task.go) | -      | Day 1 | -      | -      |
+| Go    | Part A                                        | Part B                                        | Rust  | Part A | Part B |
+| :---- | :-------------------------------------------- | :-------------------------------------------- | :---- | :----- | :----- |
+| Day 1 | [`0.046ms`](./go/internal/aoc/day01a/task.go) | [`0.038ms`](./go/internal/aoc/day01b/task.go) | Day 1 | -      | -      |

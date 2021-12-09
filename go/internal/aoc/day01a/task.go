@@ -18,16 +18,16 @@ func (p Puzzle) String() string {
 }
 
 func (p Puzzle) Run() int {
-	str := strings.Split(input, "\n")
+	depths := strings.Split(input, "\n")
 
-	left, _ := strconv.Atoi(str[0])
-	right, inc := 0, 0
-	for i := 1; i < len(str); i++ {
-		right, _ = strconv.Atoi(str[i])
-		if right > left {
+	a, _ := strconv.Atoi(depths[0])
+	b, inc := 0, 0
+	for i := 1; i < len(depths); i++ {
+		b, _ = strconv.Atoi(depths[i])
+		if b > a {
 			inc++
 		}
-		left = right
+		a = b
 	}
 
 	return inc
