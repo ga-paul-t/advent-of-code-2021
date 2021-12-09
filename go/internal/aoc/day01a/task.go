@@ -20,13 +20,14 @@ func (p Puzzle) String() string {
 func (p Puzzle) Run() int {
 	str := strings.Split(input, "\n")
 
-	inc := 0
+	left, _ := strconv.Atoi(str[0])
+	right, inc := 0, 0
 	for i := 1; i < len(str); i++ {
-		a, _ := strconv.Atoi(str[i])
-		b, _ := strconv.Atoi(str[i-1])
-		if a > b {
+		right, _ = strconv.Atoi(str[i])
+		if right > left {
 			inc++
 		}
+		left = right
 	}
 
 	return inc
