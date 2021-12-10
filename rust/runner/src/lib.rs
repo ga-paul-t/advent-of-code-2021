@@ -1,8 +1,6 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
-    }
+pub fn jobs() -> &'static [(fn(), &'static str)] {
+    &[
+        (day01a::main, "01a"),
+        (day01b::main, "01b")
+    ]
 }

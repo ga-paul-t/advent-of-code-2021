@@ -15,7 +15,7 @@
 # vendor/
 
 # Built binary
-bin/
+go/bin/
 
 # Ignore IntelliJ Rust output
 .idea

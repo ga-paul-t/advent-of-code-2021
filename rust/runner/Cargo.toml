@@ -7,3 +7,7 @@ authors = ["Paul T <paul.t@gembaadvantage.com>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+took = "0.1.2"
+
+day01a = { path = "../day01a" }
+day01b = { path = "../day01b" }

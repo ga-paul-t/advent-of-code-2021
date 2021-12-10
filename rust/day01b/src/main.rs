@@ -2,7 +2,7 @@
 
 pub fn main() {
     let input = include_str!("./input.txt");
-    println!("{}", day01b(input));
+    print!("{}", day01b(input));
 }
 
 pub fn day01b(input: &str) -> usize {
