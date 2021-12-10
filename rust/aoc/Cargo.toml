@@ -1,5 +1,5 @@
 [package]
-name = "runner"
+name = "aoc"
 version = "0.1.0"
 edition = "2021"
 authors = ["Paul T <paul.t@gembaadvantage.com>"]
@@ -8,6 +8,3 @@ authors = ["Paul T <paul.t@gembaadvantage.com>"]
 
 [dependencies]
 took = "0.1.2"
-
-day01a = { path = "../day01a" }
-day01b = { path = "../day01b" }

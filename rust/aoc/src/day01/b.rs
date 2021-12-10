@@ -1,11 +1,10 @@
-#![feature(test)]
-
-pub fn main() {
+pub fn run() -> usize {
     let input = include_str!("./input.txt");
-    print!("{}", day01b(input));
+    return solve(input);
 }
 
-pub fn day01b(input: &str) -> usize {
+
+pub fn solve(input: &str) -> usize {
     // Only need to compare the first and last numbers, as each sliding window
     // will share 2 common values:
     //
@@ -28,7 +27,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_day01b() {
+    fn test_solve() {
         let input = r"199
 200
 208
@@ -39,11 +38,11 @@ mod tests {
 269
 260
 263";
-        assert_eq!(day01b(input), 5);
+        assert_eq!(solve(input), 5);
     }
 
     #[bench]
-    fn bench_main(b: &mut Bencher) {
-        b.iter(|| main())
+    fn bench_run(b: &mut Bencher) {
+        b.iter(|| run())
     }
 }

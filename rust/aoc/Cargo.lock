@@ -3,19 +3,9 @@
 version = 3
 
 [[package]]
-name = "day01a"
-version = "0.1.0"
-
-[[package]]
-name = "day01b"
-version = "0.1.0"
-
-[[package]]
-name = "runner"
+name = "aoc"
 version = "0.1.0"
 dependencies = [
- "day01a",
- "day01b",
  "took",
 ]
 

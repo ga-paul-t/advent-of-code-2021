@@ -17,6 +17,13 @@ cd go && make
 ./bin/aoc-2021 --benchmark
 ```
 
+To build and run Rust solutions:
+
+```sh
+cd rust/aoc
+cargo +nightly run --bin benchmark --release
+```
+
 ## Results
 
 All puzzles were benchmarked on the following laptop:
@@ -30,4 +37,4 @@ MacBook Pro (2019)
 
 | Go    | Part A                                        | Part B                                        | Rust  | Part A                                 | Part B                                 |
 | :---- | :-------------------------------------------- | :-------------------------------------------- | :---- | :------------------------------------- | :------------------------------------- |
-| Day 1 | [`0.046ms`](./go/internal/aoc/day01a/task.go) | [`0.036ms`](./go/internal/aoc/day01b/task.go) | Day 1 | [`0.067ms`](./rust/day01a/src/main.rs) | [`0.049ms`](./rust/day01b/src/main.rs) |
+| Day 1 | [`0.046ms`](./go/internal/aoc/day01a/task.go) | [`0.036ms`](./go/internal/aoc/day01b/task.go) | Day 1 | [`0.041ms`](./rust/day01a/src/main.rs) | [`0.040ms`](./rust/day01b/src/main.rs) |
