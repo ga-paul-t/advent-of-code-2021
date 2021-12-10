@@ -30,4 +30,4 @@ MacBook Pro (2019)
 
 | Go    | Part A                                        | Part B                                        | Rust  | Part A | Part B |
 | :---- | :-------------------------------------------- | :-------------------------------------------- | :---- | :----- | :----- |
-| Day 1 | [`0.046ms`](./go/internal/aoc/day01a/task.go) | [`0.038ms`](./go/internal/aoc/day01b/task.go) | Day 1 | -      | -      |
+| Day 1 | [`0.046ms`](./go/internal/aoc/day01a/task.go) | [`0.036ms`](./go/internal/aoc/day01b/task.go) | Day 1 | -      | -      |
