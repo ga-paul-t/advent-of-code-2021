@@ -1,0 +1,8 @@
+[package]
+name = "day01a"
+version = "0.1.0"
+edition = "2021"
+authors = ["Paul T <paul.t@gembaadvantage.com>"]
+
+[lib]
+path = "src/main.rs"

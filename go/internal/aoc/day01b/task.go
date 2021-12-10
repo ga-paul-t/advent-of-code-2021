@@ -26,12 +26,15 @@ func (p Puzzle) Run() int {
 	w[2], _ = strconv.Atoi(depths[2])
 	w[3], _ = strconv.Atoi(depths[3])
 
-	a, b, inc := 0, 0, 0
-	for i := 4; i < len(depths)-1; i++ {
-		a = w[0] + w[1] + w[2]
-		b = w[1] + w[2] + w[3]
+	// Only need to compare the first and last numbers, as each sliding window
+	// will share 2 common values:
+	//
+	// [199, 200, 208, 210] -> A: [199, 299, 208] B: [200, 208, 210]
+	// 210 > 199 ++(increased)
 
-		if b > a {
+	inc := 0
+	for i := 4; i < len(depths)-1; i++ {
+		if w[3] > w[0] {
 			inc++
 		}
 
