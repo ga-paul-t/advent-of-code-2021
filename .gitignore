@@ -16,3 +16,7 @@
 
 # Built binary
 bin/
+
+# Ignore IntelliJ Rust output
+.idea
+target/
