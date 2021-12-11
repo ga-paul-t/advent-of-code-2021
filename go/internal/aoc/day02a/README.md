@@ -32,7 +32,7 @@ goos: darwin
 goarch: amd64
 pkg: github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02a
 cpu: Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz
-Benchmark_Run-16           14988         82486 ns/op       48384 B/op       1001 allocs/op
+Benchmark_Run-16    	   15096	     79688 ns/op	   48384 B/op	    1001 allocs/op
 PASS
-ok      github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02a    2.312s
+ok  	github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02a	2.154s
 ```

@@ -22,16 +22,16 @@ func (p Puzzle) Run() int {
 
 	hpos, dep, aim := 0, 0, 0
 	for _, cmd := range cmds {
-		parts := strings.Split(cmd, " ")
-		v, _ := strconv.Atoi(parts[1])
+		instr := strings.Split(cmd, " ")
+		v, _ := strconv.Atoi(instr[1])
 
-		switch parts[0] {
+		switch instr[0] {
 		case "forward":
 			hpos += v
 			dep += aim * v
 		case "down":
 			aim += v
-		case "up":
+		default:
 			aim -= v
 		}
 	}
