@@ -1,6 +1,6 @@
-# Day 1: Sonar Sweep
+# Day 2: Dive!
 
-Read about the puzzle [here](https://adventofcode.com/2021/day/1).
+Read about the puzzle [here](https://adventofcode.com/2021/day/2).
 
 Puzzle was run on:
 
@@ -15,16 +15,16 @@ MacBook Pro (2019)
 
 Both puzzles were run 100 times and the fastest time was recorded as:
 
-- Part A: **0.041ms**
-- Part B: **0.040ms**
+- Part A: **0.045ms**
+- Part B: **0.046ms**
 
 ```sh
 $ cargo +nightly run --release --bin benchmark
 
 🎄 Advent of Code 2021 - Benchmark
 
-🧩 Puzzle 01a: 1298 [time taken: 41.76 μs]
-🧩 Puzzle 01b: 1248 [time taken: 40.19 μs]
+🧩 Puzzle 02a: 1990000    [time taken: 45.39 μs]
+🧩 Puzzle 02b: 1975421260 [time taken: 46.10 μs]
 ```
 
 ## Rust Benchmark
