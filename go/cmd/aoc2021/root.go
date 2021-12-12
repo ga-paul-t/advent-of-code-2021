@@ -12,6 +12,7 @@ import (
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day01b"
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02a"
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02b"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day03a"
 	"github.com/spf13/cobra"
 )
 
@@ -23,6 +24,7 @@ var (
 	puzzles = map[int][]aoc.Runner{
 		1: {day01a.Puzzle{}, day01b.Puzzle{}},
 		2: {day02a.Puzzle{}, day02b.Puzzle{}},
+		3: {day03a.Puzzle{}},
 	}
 )
 
