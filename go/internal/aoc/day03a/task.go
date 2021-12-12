@@ -15,7 +15,7 @@ var (
 type Puzzle struct{}
 
 func (p Puzzle) String() string {
-	return "03b"
+	return "03a"
 }
 
 func (p Puzzle) Run() int {
