@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	benchNum = 100
+	benchNum = 200
 )
 
 var (
@@ -26,6 +26,8 @@ var (
 		2: {day02a.Puzzle{}, day02b.Puzzle{}},
 		3: {day03a.Puzzle{}},
 	}
+
+	times int
 )
 
 func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
@@ -62,6 +64,7 @@ func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
 	}
 	f := cmd.Flags()
 	f.BoolVarP(&bench, "benchmark", "b", false, "run in benchmarking mode")
+	f.IntVarP(&times, "times", "t", benchNum, "number of puzzle executions during benchmark")
 	f.IntVarP(&puzzle, "puzzle", "p", 0, "run a specific puzzle only")
 
 	return cmd, nil
@@ -80,24 +83,24 @@ func runPuzzles(out io.Writer, pzs []aoc.Runner) {
 }
 
 func benchmarkPuzzles(out io.Writer, pzs []aoc.Runner) {
-	fmt.Fprintln(out, "🎄 Advent of Code 2021 - Benchmark")
+	fmt.Fprintf(out, "🎄 Advent of Code 2021 - Benchmark [executions: %d]\n", times)
 	fmt.Fprintln(out)
 
-	btimes := make([]time.Duration, benchNum)
+	exec := make([]time.Duration, times)
 
 	for _, pz := range pzs {
 		res := 0
 
 		// Run each puzzle the required benchmark sample rate, collecting each duration
-		for b := 0; b < benchNum; b++ {
+		for b := 0; b < times; b++ {
 			now := time.Now()
 			res = pz.Run()
-			btimes[b] = time.Since(now)
+			exec[b] = time.Since(now)
 		}
-		sort.Slice(btimes, func(i, j int) bool {
-			return btimes[i] < btimes[j]
+		sort.Slice(exec, func(i, j int) bool {
+			return exec[i] < exec[j]
 		})
 
-		fmt.Fprintf(out, "🧩 Puzzle %s: %d [time taken: %s]\n", pz, res, btimes[0])
+		fmt.Fprintf(out, "🧩 Puzzle %s: %d [time taken: %s]\n", pz, res, exec[0])
 	}
 }
