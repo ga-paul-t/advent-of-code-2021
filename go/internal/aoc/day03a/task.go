@@ -3,7 +3,6 @@ package day03a
 import (
 	_ "embed"
 	"math"
-	"strconv"
 	"strings"
 )
 
@@ -21,11 +20,11 @@ func (p Puzzle) String() string {
 func (p Puzzle) Run() int {
 	readings := strings.Split(input, "\n")
 
-	bits := len(readings[0])
-	gam := make([]byte, bits)
-	eps := make([]byte, bits)
-
+	// Determine the bias for setting a bit to 1
 	max := int(math.Ceil(float64(len(readings)) / 2.0))
+
+	bits := len(readings[0])
+	gam, eps := 0, 0
 
 	for b := 0; b < bits; b++ {
 		c := 0
@@ -34,24 +33,15 @@ func (p Puzzle) Run() int {
 			if r[b] == '1' {
 				c++
 			}
-
-			// Break early when we know the most common bit
-			if c == max {
-				break
-			}
 		}
 
-		if c == max {
-			gam[b] = '1'
-			eps[b] = '0'
-		} else {
-			gam[b] = '0'
-			eps[b] = '1'
+		if c >= max {
+			gam += 1 << (bits - (b + 1))
 		}
 	}
 
-	gamt, _ := strconv.ParseInt(string(gam[:]), 2, 64)
-	epst, _ := strconv.ParseInt(string(eps[:]), 2, 64)
+	// Invert gamma
+	eps = ^gam & ((1 << bits) - 1)
 
-	return int(gamt * epst)
+	return gam * eps
 }

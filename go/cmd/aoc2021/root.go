@@ -72,8 +72,8 @@ func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
 	f.BoolVarP(&opts.Bench, "benchmark", "b", false, "run in benchmarking mode")
 	f.IntVarP(&opts.Times, "times", "t", benchNum, "number of puzzle executions during benchmark")
 	f.IntVarP(&opts.Puzzle, "puzzle", "p", 0, "run a specific puzzle only")
-	f.BoolVarP(&opts.PartA, "part-a", "a", false, "run part A of puzzles only")
-	f.BoolVarP(&opts.PartB, "part-b", "b", false, "run part B of puzzles only")
+	f.BoolVarP(&opts.PartA, "part-a", "A", false, "run part A of puzzles only")
+	f.BoolVarP(&opts.PartB, "part-b", "B", false, "run part B of puzzles only")
 
 	return cmd, nil
 }
