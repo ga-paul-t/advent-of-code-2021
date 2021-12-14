@@ -5,7 +5,42 @@ pub fn run() -> usize {
 
 
 fn solve(input: &str) -> usize {
-    return 0
+    let readings = input
+        .lines()
+        .collect::<Vec<&str>>();
+
+    let max = (readings.len() as f32 / 2.0).ceil() as usize;
+    let bits = readings[0].len();
+
+    // Bit shift gamma as required
+    let mut gamma = 0;
+
+    readings
+        .into_iter()
+        .fold(vec![0; bits], |count, reading| {
+            // Count all occurrences of 1 at each bit position within a reading
+            count
+                .into_iter()
+                .enumerate()
+                .map(|(i, n)| {
+                    return if reading.as_bytes()[i] == b'1' {
+                        n + 1
+                    } else {
+                        n
+                    }
+                })
+                .collect()
+        })
+        .into_iter()
+        .enumerate()
+        .for_each(|(i, b)| {
+            if b >= max {
+                gamma += 1 << (bits - (i + 1))
+            }
+        });
+
+    let epsilon = !gamma & ((1 << bits) - 1);
+    return gamma * epsilon;
 }
 
 #[cfg(test)]
