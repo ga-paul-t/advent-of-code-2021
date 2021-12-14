@@ -1,4 +1,5 @@
 #![feature(test)]
+#![feature(drain_filter)]
 
 pub mod day01;
 pub mod day02;

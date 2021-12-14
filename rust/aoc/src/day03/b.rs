@@ -3,9 +3,50 @@ pub fn run() -> usize {
     return solve(input)
 }
 
-
 fn solve(input: &str) -> usize {
-    return 0;
+    let readings = input
+        .lines()
+        .collect::<Vec<&str>>();
+
+    let bits = readings[0].len();
+
+    let oxygen_rating = (0..bits)
+        .scan(readings.clone(), | oxygen, i| {
+            let max = (oxygen.len() as f32 / 2.0).ceil() as usize;
+
+            let mut sig = b'0';
+            let count = oxygen.iter()
+                .filter(|o| (**o).as_bytes()[i] == b'1')
+                .count();
+            if count >= max {
+                sig = b'1';
+            }
+
+            oxygen.drain_filter(|o| (*o).as_bytes()[i] != sig);
+            oxygen.first().copied()
+        })
+        .last()
+        .unwrap();
+
+    let co2_rating = (0..bits)
+        .scan(readings, | co2, i| {
+            let max = (co2.len() as f32 / 2.0).ceil() as usize;
+
+            let mut sig = b'1';
+            let count = co2.iter()
+                .filter(|c| (**c).as_bytes()[i] == b'1')
+                .count();
+            if count >= max {
+                sig = b'0';
+            }
+
+            co2.drain_filter(|c| (*c).as_bytes()[i] != sig);
+            co2.first().copied()
+        })
+        .last()
+        .unwrap();
+
+    return (u32::from_str_radix(oxygen_rating, 2).unwrap() * u32::from_str_radix(co2_rating, 2).unwrap()) as usize;
 }
 
 #[cfg(test)]

@@ -24,7 +24,7 @@ func TestPuzzle_WithSample(t *testing.T) {
 	puz := Puzzle{}
 	res := puz.Run()
 
-	assert.Equal(t, 230, res)
+	assert.Equal(t, 231, res)
 }
 
 func Benchmark_Run(b *testing.B) {
