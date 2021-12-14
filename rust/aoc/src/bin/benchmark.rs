@@ -20,6 +20,6 @@ fn main() {
         .collect();
 
     executions.iter().for_each(|exc| {
-        println!("🧩 Puzzle {}: {} [time taken: {}]", exc.0, exc.1, Took::from_std(exc.2))
+        println!("🧩 Puzzle {}: {:<14} [time taken: {}]", exc.0, exc.1, Took::from_std(exc.2))
     })
 }

@@ -46,7 +46,8 @@ fn solve(input: &str) -> usize {
         .last()
         .unwrap();
 
-    return (u32::from_str_radix(oxygen_rating, 2).unwrap() * u32::from_str_radix(co2_rating, 2).unwrap()) as usize;
+    return usize::from_str_radix(oxygen_rating, 2).unwrap() *
+        usize::from_str_radix(co2_rating, 2).unwrap();
 }
 
 #[cfg(test)]

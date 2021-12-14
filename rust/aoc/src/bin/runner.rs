@@ -8,6 +8,6 @@ fn main() {
         .iter()
         .for_each(|job| {
             let now = Timer::new();
-            println!("🧩 Puzzle {}: {} [time taken: {}]", job.1, job.0(), now.took().to_string())
+            println!("🧩 Puzzle {}: {:<14} [time taken: {}]", job.1, job.0(), now.took().to_string())
         });
 }
