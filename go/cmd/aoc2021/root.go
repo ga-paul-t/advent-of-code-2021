@@ -12,23 +12,34 @@ import (
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day01b"
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02a"
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02b"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day03a"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day03b"
 	"github.com/spf13/cobra"
 )
 
 const (
-	benchNum = 100
+	benchNum = 200
 )
 
+// slice [][]aoc.Runner
+// puzzle - 1 when selecting
+
 var (
-	puzzles = map[int][]aoc.Runner{
-		1: {day01a.Puzzle{}, day01b.Puzzle{}},
-		2: {day02a.Puzzle{}, day02b.Puzzle{}},
+	puzzles = [][]aoc.Runner{
+		{day01a.Puzzle{}, day01b.Puzzle{}},
+		{day02a.Puzzle{}, day02b.Puzzle{}},
+		{day03a.Puzzle{}, day03b.Puzzle{}},
 	}
 )
 
+type options struct {
+	Bench  bool
+	Puzzle int
+	Times  int
+}
+
 func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
-	var bench bool
-	var puzzle int
+	opts := options{}
 
 	cmd := &cobra.Command{
 		Use:          "aoc-2021",
@@ -36,21 +47,21 @@ func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
 		SilenceUsage: true,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			toRun := make([]aoc.Runner, 0, len(puzzles)*2)
-			if puzzle > 0 {
-				pz, ok := puzzles[puzzle]
-				if ok {
-					toRun = append(toRun, pz...)
-				} else {
+			if opts.Puzzle > 0 {
+				if opts.Puzzle > len(puzzles) {
 					return errors.New("no puzzle found")
 				}
+
+				toRun = append(toRun, puzzles[opts.Puzzle-1]...)
+
 			} else {
 				for _, pz := range puzzles {
 					toRun = append(toRun, pz...)
 				}
 			}
 
-			if bench {
-				benchmarkPuzzles(out, toRun)
+			if opts.Bench {
+				benchmarkPuzzles(out, toRun, opts)
 			} else {
 				runPuzzles(out, toRun)
 			}
@@ -59,8 +70,9 @@ func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
 		},
 	}
 	f := cmd.Flags()
-	f.BoolVarP(&bench, "benchmark", "b", false, "run in benchmarking mode")
-	f.IntVarP(&puzzle, "puzzle", "p", 0, "run a specific puzzle only")
+	f.BoolVarP(&opts.Bench, "benchmark", "b", false, "run in benchmarking mode")
+	f.IntVarP(&opts.Times, "times", "t", benchNum, "number of puzzle executions during benchmark")
+	f.IntVarP(&opts.Puzzle, "puzzle", "p", 0, "run a specific puzzle only")
 
 	return cmd, nil
 }
@@ -69,33 +81,56 @@ func runPuzzles(out io.Writer, pzs []aoc.Runner) {
 	fmt.Fprintln(out, "🎄 Advent of Code 2021")
 	fmt.Fprintln(out)
 
+	// Capture all durations for displaying total elapsed time
+	elapsed := make([]time.Duration, len(pzs))
+
 	for _, pz := range pzs {
 		now := time.Now()
 		res := pz.Run()
 		dur := time.Since(now)
-		fmt.Fprintf(out, "🧩 Puzzle %s: %d [time taken: %s]\n", pz, res, dur)
+		fmt.Fprintf(out, "🧩 Puzzle %s: %-14d [time taken: %s]\n", pz, res, dur)
+
+		elapsed = append(elapsed, dur)
 	}
+
+	fmt.Fprintln(out)
+	fmt.Fprintf(out, "Total elapsed time: [%s]\n", sumElapsedTime(elapsed))
 }
 
-func benchmarkPuzzles(out io.Writer, pzs []aoc.Runner) {
-	fmt.Fprintln(out, "🎄 Advent of Code 2021 - Benchmark")
+func sumElapsedTime(dur []time.Duration) time.Duration {
+	var t time.Duration
+	for _, d := range dur {
+		t += d
+	}
+
+	return t
+}
+
+func benchmarkPuzzles(out io.Writer, pzs []aoc.Runner, opts options) {
+	fmt.Fprintf(out, "🎄 Advent of Code 2021 - Benchmark [executions: %d]\n", opts.Times)
 	fmt.Fprintln(out)
 
-	btimes := make([]time.Duration, benchNum)
+	// Capture all durations for displaying total elapsed time
+	elapsed := make([]time.Duration, len(pzs))
 
+	exec := make([]time.Duration, opts.Times)
 	for _, pz := range pzs {
 		res := 0
 
 		// Run each puzzle the required benchmark sample rate, collecting each duration
-		for b := 0; b < benchNum; b++ {
+		for b := 0; b < opts.Times; b++ {
 			now := time.Now()
 			res = pz.Run()
-			btimes[b] = time.Since(now)
+			exec[b] = time.Since(now)
 		}
-		sort.Slice(btimes, func(i, j int) bool {
-			return btimes[i] < btimes[j]
+		sort.Slice(exec, func(i, j int) bool {
+			return exec[i] < exec[j]
 		})
 
-		fmt.Fprintf(out, "🧩 Puzzle %s: %d [time taken: %s]\n", pz, res, btimes[0])
+		fmt.Fprintf(out, "🧩 Puzzle %s: %-14d [time taken: %s]\n", pz, res, exec[0])
+		elapsed = append(elapsed, exec[0])
 	}
+
+	fmt.Fprintln(out)
+	fmt.Fprintf(out, "Total elapsed time: [%s]\n", sumElapsedTime(elapsed))
 }
