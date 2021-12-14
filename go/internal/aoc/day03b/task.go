@@ -2,7 +2,6 @@ package day03b
 
 import (
 	_ "embed"
-	"fmt"
 	"math"
 	"strconv"
 	"strings"
@@ -68,8 +67,6 @@ func oxygenRating(readings []string, bits int) int64 {
 		r = readings[0]
 	}
 
-	fmt.Println(r)
-
 	rv, _ := strconv.ParseInt(r, 2, 64)
 	return rv
 }
@@ -111,8 +108,6 @@ func co2Rating(readings []string, bits int) int64 {
 	if readings[0][bits-1] == '0' {
 		r = readings[0]
 	}
-
-	fmt.Println(r)
 
 	rv, _ := strconv.ParseInt(r, 2, 64)
 	return rv
