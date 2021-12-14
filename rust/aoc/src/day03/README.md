@@ -30,13 +30,13 @@ $ cargo +nightly run --release --bin benchmark
 ## Rust Benchmark
 
 ```sh
-$ cargo bench -- day02::
-    Finished bench [optimized] target(s) in 0.00s
+$ cargo bench -- day03::
+    Finished bench [optimized] target(s) in 0.01s
      Running unittests (target/release/deps/aoc-477aaeba5962c117)
 
 running 4 tests
-test day02::a::tests::test_solve ... ignored
-test day02::b::tests::test_solve ... ignored
-test day02::a::tests::bench_run ... bench:      38,126 ns/iter (+/- 3,896)
-test day02::b::tests::bench_run ... bench:      37,579 ns/iter (+/- 3,423)
+test day03::a::tests::test_solve ... ignored
+test day03::b::tests::test_solve ... ignored
+test day03::a::tests::bench_run ... bench:      27,922 ns/iter (+/- 3,852)
+test day03::b::tests::bench_run ... bench:      32,380 ns/iter (+/- 7,951)
 ```
