@@ -21,11 +21,14 @@ const (
 	benchNum = 200
 )
 
+// slice [][]aoc.Runner
+// puzzle - 1 when selecting
+
 var (
-	puzzles = map[int][]aoc.Runner{
-		1: {day01a.Puzzle{}, day01b.Puzzle{}},
-		2: {day02a.Puzzle{}, day02b.Puzzle{}},
-		3: {day03a.Puzzle{}, day03b.Puzzle{}},
+	puzzles = [][]aoc.Runner{
+		{day01a.Puzzle{}, day01b.Puzzle{}},
+		{day02a.Puzzle{}, day02b.Puzzle{}},
+		{day03a.Puzzle{}, day03b.Puzzle{}},
 	}
 )
 
@@ -33,8 +36,6 @@ type options struct {
 	Bench  bool
 	Puzzle int
 	Times  int
-	PartA  bool
-	PartB  bool
 }
 
 func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
@@ -47,12 +48,12 @@ func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
 		RunE: func(cmd *cobra.Command, args []string) error {
 			toRun := make([]aoc.Runner, 0, len(puzzles)*2)
 			if opts.Puzzle > 0 {
-				pz, ok := puzzles[opts.Puzzle]
-				if ok {
-					toRun = append(toRun, pz...)
-				} else {
+				if opts.Puzzle > len(puzzles) {
 					return errors.New("no puzzle found")
 				}
+
+				toRun = append(toRun, puzzles[opts.Puzzle-1]...)
+
 			} else {
 				for _, pz := range puzzles {
 					toRun = append(toRun, pz...)
@@ -72,8 +73,6 @@ func newRootCmd(args []string, out io.Writer) (*cobra.Command, error) {
 	f.BoolVarP(&opts.Bench, "benchmark", "b", false, "run in benchmarking mode")
 	f.IntVarP(&opts.Times, "times", "t", benchNum, "number of puzzle executions during benchmark")
 	f.IntVarP(&opts.Puzzle, "puzzle", "p", 0, "run a specific puzzle only")
-	f.BoolVarP(&opts.PartA, "part-a", "A", false, "run part A of puzzles only")
-	f.BoolVarP(&opts.PartB, "part-b", "B", false, "run part B of puzzles only")
 
 	return cmd, nil
 }
@@ -82,20 +81,39 @@ func runPuzzles(out io.Writer, pzs []aoc.Runner) {
 	fmt.Fprintln(out, "🎄 Advent of Code 2021")
 	fmt.Fprintln(out)
 
+	// Capture all durations for displaying total elapsed time
+	elapsed := make([]time.Duration, len(pzs))
+
 	for _, pz := range pzs {
 		now := time.Now()
 		res := pz.Run()
 		dur := time.Since(now)
-		fmt.Fprintf(out, "🧩 Puzzle %s: %d [time taken: %s]\n", pz, res, dur)
+		fmt.Fprintf(out, "🧩 Puzzle %s: %-14d [time taken: %s]\n", pz, res, dur)
+
+		elapsed = append(elapsed, dur)
 	}
+
+	fmt.Fprintln(out)
+	fmt.Fprintf(out, "Total elapsed time: [%s]\n", sumElapsedTime(elapsed))
+}
+
+func sumElapsedTime(dur []time.Duration) time.Duration {
+	var t time.Duration
+	for _, d := range dur {
+		t += d
+	}
+
+	return t
 }
 
 func benchmarkPuzzles(out io.Writer, pzs []aoc.Runner, opts options) {
 	fmt.Fprintf(out, "🎄 Advent of Code 2021 - Benchmark [executions: %d]\n", opts.Times)
 	fmt.Fprintln(out)
 
-	exec := make([]time.Duration, opts.Times)
+	// Capture all durations for displaying total elapsed time
+	elapsed := make([]time.Duration, len(pzs))
 
+	exec := make([]time.Duration, opts.Times)
 	for _, pz := range pzs {
 		res := 0
 
@@ -109,6 +127,10 @@ func benchmarkPuzzles(out io.Writer, pzs []aoc.Runner, opts options) {
 			return exec[i] < exec[j]
 		})
 
-		fmt.Fprintf(out, "🧩 Puzzle %s: %d [time taken: %s]\n", pz, res, exec[0])
+		fmt.Fprintf(out, "🧩 Puzzle %s: %-14d [time taken: %s]\n", pz, res, exec[0])
+		elapsed = append(elapsed, exec[0])
 	}
+
+	fmt.Fprintln(out)
+	fmt.Fprintf(out, "Total elapsed time: [%s]\n", sumElapsedTime(elapsed))
 }
