@@ -33,25 +33,23 @@ func oxygenRating(readings []string, bits int) int64 {
 	for i := 0; i < bits && len(readings) > 2; i++ {
 		max := int(math.Ceil(float64(len(readings)) / 2.0))
 
-		j, k := 0, 0
-		var b byte
+		ones, zeros := 0, 0
+		var b byte = '0'
 
 		for _, r := range readings {
 			if r[i] == '1' {
-				j++
+				ones++
 			} else {
-				k++
+				zeros++
 			}
 			// Circuit break as quickly as possible
-			if j == max || k == max {
+			if ones == max || zeros == max {
 				break
 			}
 		}
 
-		if j >= k {
+		if ones >= zeros {
 			b = '1'
-		} else {
-			b = '0'
 		}
 
 		oxy := []string{}
@@ -77,25 +75,23 @@ func co2Rating(readings []string, bits int) int64 {
 	for i := 0; i < bits && len(readings) > 2; i++ {
 		max := int(math.Ceil(float64(len(readings)) / 2.0))
 
-		j, k := 0, 0
-		var b byte
+		ones, zeros := 0, 0
+		var b byte = '1'
 
 		for _, r := range readings {
 			if r[i] == '1' {
-				j++
+				ones++
 			} else {
-				k++
+				zeros++
 			}
 			// Circuit break as quickly as possible
-			if j == max || k == max {
+			if ones == max || zeros == max {
 				break
 			}
 		}
 
-		if j >= k {
+		if ones >= zeros {
 			b = '0'
-		} else {
-			b = '1'
 		}
 
 		co2 := []string{}
