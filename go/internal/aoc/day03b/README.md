@@ -13,7 +13,7 @@ MacBook Pro (2019)
 
 ## Performance
 
-Puzzle was run 100 times and the fastest time was recorded as: **0.058ms**
+Puzzle was run 200 times and the fastest time was recorded as: **0.058ms**
 
 ```sh
 $ aoc-2021 --benchmark --puzzle 3

@@ -13,12 +13,12 @@ MacBook Pro (2019)
 
 ## Performance
 
-Puzzle was run 100 times and the fastest time was recorded as: **0.091ms**
+Puzzle was run 200 times and the fastest time was recorded as: **0.091ms**
 
 ```sh
 $ aoc-2021 --benchmark --puzzle 2
 
-🎄 Advent of Code 2021 - Benchmark
+🎄 Advent of Code 2021 - Benchmark [executions: 200]
 
 🧩 Puzzle 02b: 1975421260 [time taken: 91.4µs]
 ```
