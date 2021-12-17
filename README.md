@@ -41,3 +41,4 @@ MacBook Pro (2019)
 | Day 2 | [`0.089ms`](./go/internal/aoc/day02a/task.go) | [`0.091ms`](./go/internal/aoc/day02b/task.go) | Day 2 | [`0.045ms`](./rust/aoc/src/day02/a.rs) | [`0.046ms`](./rust/aoc/src/day02/b.rs) |
 | Day 3 | [`0.026ms`](./go/internal/aoc/day03a/task.go) | [`0.058ms`](./go/internal/aoc/day03b/task.go) | Day 3 | [`0.033ms`](./rust/aoc/src/day03/a.rs) | [`0.037ms`](./rust/aoc/src/day03/b.rs) |
 | Day 4 | [`0.248ms`](./go/internal/aoc/day04a/task.go) | [`0.443ms`](./go/internal/aoc/day04b/task.go) | Day 4 | -                                      | -                                      |
+| Day 5 | [`0.809ms`](./go/internal/aoc/day05a/task.go) | -                                             | Day 5 | [`0.205ms`](./rust/aoc/src/day05/a.rs) | -                                      |
