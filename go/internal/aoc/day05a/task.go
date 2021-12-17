@@ -30,8 +30,7 @@ func NewCoords(coords []string) Coords {
 	x2, _ := strconv.Atoi(c2[0])
 	y2, _ := strconv.Atoi(c2[1])
 
-	// Simplify calculations later by ordering the points to ensure all steps are positive.
-	// This does break diagonal coordinates, but these are ignored
+	// Simplify calculations later by ordering the points to ensure all steps are positive
 	c := Coords{
 		X1: x1,
 		Y1: y2,
@@ -39,6 +38,7 @@ func NewCoords(coords []string) Coords {
 		Y2: y2,
 	}
 
+	// Simplify calculations later by ordering the points to ensure all steps are positive
 	if x1 == x2 && y1 > y2 {
 		c.Y1 = y2
 		c.Y2 = y1
@@ -72,10 +72,9 @@ func (p Puzzle) Run() int {
 
 		if grid[pos] == 1 {
 			overlaps++
-			return
 		}
 
-		grid[pos] = 1
+		grid[pos] += 1
 	}
 
 	for _, c := range coords {
