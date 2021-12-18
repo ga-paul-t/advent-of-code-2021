@@ -7,8 +7,7 @@ pub fn run() -> usize {
 }
 
 fn solve(input: &str, dimension: usize) -> usize {
-    let mut grid = vec![0u8; dimension * dimension];
-    let mut overlaps = 0;
+    let (mut grid, mut overlaps) = (vec![0u8; 1000 * 1000], 0);
 
     // Define a function for plotting a point on the grid and incrementing overlap count
     let mut plot = |x: usize, y: usize| {
@@ -38,7 +37,7 @@ fn solve(input: &str, dimension: usize) -> usize {
                 ((x1, y1), (x2, y2))
             }
         })
-        .for_each(|((x1, y1), (x2, y2) )| {
+        .for_each(|((x1, y1), (x2, y2))| {
             if x1 == x2 {
                 (y1..=y2).for_each(|py| plot(x1, py));
             } else if y1 == y2 {
