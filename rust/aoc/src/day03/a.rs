@@ -3,7 +3,6 @@ pub fn run() -> usize {
     return solve(input)
 }
 
-
 fn solve(input: &str) -> usize {
     let readings = input
         .lines()

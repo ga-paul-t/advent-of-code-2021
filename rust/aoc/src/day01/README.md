@@ -13,18 +13,18 @@ MacBook Pro (2019)
 
 ## Performance
 
-Both puzzles were run 100 times and the fastest time was recorded as:
+Both puzzles were run 200 times and the fastest time was recorded as:
 
-- Part A: **0.041ms**
-- Part B: **0.040ms**
+- Part A: **0.034ms**
+- Part B: **0.035ms**
 
 ```sh
 $ cargo +nightly run --release --bin benchmark
 
-🎄 Advent of Code 2021 - Benchmark
+🎄 Advent of Code 2021 - Benchmark [executions: 200]
 
-🧩 Puzzle 01a: 1298 [time taken: 41.76 μs]
-🧩 Puzzle 01b: 1248 [time taken: 40.19 μs]
+🧩 Puzzle 01a: 1298 [time taken: 34.88 μs]
+🧩 Puzzle 01b: 1248 [time taken: 35.26 μs]
 ```
 
 ## Rust Benchmark
