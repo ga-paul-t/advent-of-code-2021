@@ -30,10 +30,9 @@ func NewCoords(coords []string) Coords {
 	x2, _ := strconv.Atoi(c2[0])
 	y2, _ := strconv.Atoi(c2[1])
 
-	// Simplify calculations later by ordering the points to ensure all steps are positive
 	c := Coords{
 		X1: x1,
-		Y1: y2,
+		Y1: y1,
 		X2: x2,
 		Y2: y2,
 	}
@@ -74,7 +73,7 @@ func (p Puzzle) Run() int {
 			overlaps++
 		}
 
-		grid[pos] += 1
+		grid[pos]++
 	}
 
 	for _, c := range coords {
