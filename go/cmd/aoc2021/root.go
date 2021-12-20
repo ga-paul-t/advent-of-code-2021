@@ -8,18 +8,12 @@ import (
 	"time"
 
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day01a"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day01b"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02a"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02b"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day03a"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day03b"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day04a"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day04b"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day05a"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day05b"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day06a"
-	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day06b"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day01"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day02"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day03"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day04"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day05"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day06"
 	"github.com/spf13/cobra"
 )
 
@@ -27,17 +21,14 @@ const (
 	benchNum = 200
 )
 
-// slice [][]aoc.Runner
-// puzzle - 1 when selecting
-
 var (
 	puzzles = [][]aoc.Runner{
-		{day01a.Puzzle{}, day01b.Puzzle{}},
-		{day02a.Puzzle{}, day02b.Puzzle{}},
-		{day03a.Puzzle{}, day03b.Puzzle{}},
-		{day04a.Puzzle{}, day04b.Puzzle{}},
-		{day05a.Puzzle{}, day05b.Puzzle{}},
-		{day06a.Puzzle{}, day06b.Puzzle{}},
+		{day01.PuzzleA{}, day01.PuzzleB{}},
+		{day02.PuzzleA{}, day02.PuzzleB{}},
+		{day03.PuzzleA{}, day03.PuzzleB{}},
+		{day04.PuzzleA{}, day04.PuzzleB{}},
+		{day05.PuzzleA{}, day05.PuzzleB{}},
+		{day06.PuzzleA{}, day06.PuzzleB{}},
 	}
 )
 

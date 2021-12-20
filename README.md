@@ -35,11 +35,11 @@ MacBook Pro (2019)
 16 GB 2667 MHz DDR4
 ```
 
-| Go    | Part A                                        | Part B                                        | Rust  | Part A                                 | Part B                                 |
-| :---- | :-------------------------------------------- | :-------------------------------------------- | :---- | :------------------------------------- | :------------------------------------- |
-| Day 1 | [`0.046ms`](./go/internal/aoc/day01a/task.go) | [`0.036ms`](./go/internal/aoc/day01b/task.go) | Day 1 | [`0.034ms`](./rust/aoc/src/day01/a.rs) | [`0.035ms`](./rust/aoc/src/day01/b.rs) |
-| Day 2 | [`0.089ms`](./go/internal/aoc/day02a/task.go) | [`0.091ms`](./go/internal/aoc/day02b/task.go) | Day 2 | [`0.041ms`](./rust/aoc/src/day02/a.rs) | [`0.041ms`](./rust/aoc/src/day02/b.rs) |
-| Day 3 | [`0.026ms`](./go/internal/aoc/day03a/task.go) | [`0.058ms`](./go/internal/aoc/day03b/task.go) | Day 3 | [`0.028ms`](./rust/aoc/src/day03/a.rs) | [`0.032ms`](./rust/aoc/src/day03/b.rs) |
-| Day 4 | [`0.248ms`](./go/internal/aoc/day04a/task.go) | [`0.443ms`](./go/internal/aoc/day04b/task.go) | Day 4 | -                                      | -                                      |
-| Day 5 | [`0.809ms`](./go/internal/aoc/day05a/task.go) | [`1.232ms`](./go/internal/aoc/day05b/task.go) | Day 5 | [`0.218ms`](./rust/aoc/src/day05/a.rs) | [`0.538ms`](./rust/aoc/src/day05/b.rs) |
-| Day 6 | [`0.004ms`](./go/internal/aoc/day06a/task.go) | [`0.006ms`](./go/internal/aoc/day06b/task.go) | Day 6 | [`0.003ms`](./rust/aoc/src/day06/a.rs) | [`0.003ms`](./rust/aoc/src/day06/b.rs) |
+| Go    | Part A                                    | Part B                                    | Rust  | Part A                                 | Part B                                 |
+| :---- | :---------------------------------------- | :---------------------------------------- | :---- | :------------------------------------- | :------------------------------------- |
+| Day 1 | [`0.046ms`](./go/internal/aoc/day01/a.go) | [`0.036ms`](./go/internal/aoc/day01/b.go) | Day 1 | [`0.034ms`](./rust/aoc/src/day01/a.rs) | [`0.035ms`](./rust/aoc/src/day01/b.rs) |
+| Day 2 | [`0.089ms`](./go/internal/aoc/day02/a.go) | [`0.091ms`](./go/internal/aoc/day02/b.go) | Day 2 | [`0.041ms`](./rust/aoc/src/day02/a.rs) | [`0.041ms`](./rust/aoc/src/day02/b.rs) |
+| Day 3 | [`0.026ms`](./go/internal/aoc/day03/a.go) | [`0.058ms`](./go/internal/aoc/day03/b.go) | Day 3 | [`0.028ms`](./rust/aoc/src/day03/a.rs) | [`0.032ms`](./rust/aoc/src/day03/b.rs) |
+| Day 4 | [`0.248ms`](./go/internal/aoc/day04/a.go) | [`0.443ms`](./go/internal/aoc/day04/b.go) | Day 4 | -                                      | -                                      |
+| Day 5 | [`0.809ms`](./go/internal/aoc/day05/a.go) | [`1.232ms`](./go/internal/aoc/day05/b.go) | Day 5 | [`0.218ms`](./rust/aoc/src/day05/a.rs) | [`0.538ms`](./rust/aoc/src/day05/b.rs) |
+| Day 6 | [`0.004ms`](./go/internal/aoc/day06/a.go) | [`0.006ms`](./go/internal/aoc/day06/b.go) | Day 6 | [`0.003ms`](./rust/aoc/src/day06/a.rs) | [`0.003ms`](./rust/aoc/src/day06/b.rs) |
