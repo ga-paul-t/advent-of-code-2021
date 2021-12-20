@@ -7,6 +7,8 @@ on:
 jobs:
   go:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./go
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,6 +26,8 @@ jobs:
         run: make test
   rust:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./rust/aoc
     steps:
       - name: Checkout
         uses: actions/checkout@v2
