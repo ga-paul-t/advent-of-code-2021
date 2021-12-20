@@ -13,14 +13,14 @@ MacBook Pro (2019)
 
 ## Performance
 
-Puzzle was run 200 times and the fastest time was recorded as: **0.022ms**
+Puzzle was run 200 times and the fastest time was recorded as: **0.004ms**
 
 ```sh
 $ aoc-2021 --benchmark --puzzle 6
 
 🎄 Advent of Code 2021 - Benchmark [executions: 200]
 
-🧩 Puzzle 06a: 350149 [time taken: 22.633µs]
+🧩 Puzzle 06a: 350149 [time taken: 4.783µs]
 ```
 
 ## Go Benchmark
@@ -32,7 +32,7 @@ goos: darwin
 goarch: amd64
 pkg: github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day06a
 cpu: Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz
-Benchmark_Run-16    	   57177	     20539 ns/op	    5200 B/op	       4 allocs/op
+Benchmark_Run-16    	  241982	      4826 ns/op	    4864 B/op	       1 allocs/op
 PASS
-ok  	github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day06a	1.510s
+ok  	github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day06a	1.340s
 ```

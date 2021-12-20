@@ -18,9 +18,7 @@ func (p Puzzle) String() string {
 }
 
 func (p Puzzle) Run() int {
-	lifecycle := map[int]int{
-		0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0,
-	}
+	lifecycle := [9]int{}
 
 	initial := strings.Split(input, ",")
 	for i := 0; i < len(initial); i++ {
@@ -29,13 +27,10 @@ func (p Puzzle) Run() int {
 	}
 
 	for day := 1; day <= 256; day++ {
-		newFish := 0
-		for i := 0; i <= 8; i++ {
-			if i == 0 {
-				newFish = lifecycle[i]
-			} else {
-				lifecycle[i-1] = lifecycle[i]
-			}
+		newFish := lifecycle[0]
+
+		for i := 1; i <= 8; i++ {
+			lifecycle[i-1] = lifecycle[i]
 		}
 
 		lifecycle[8] = newFish
