@@ -1,0 +1,43 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+      - name: Lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          skip-go-installation: true
+      - name: Test
+        run: make test
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          profile: minimal
+          override: true
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v1
+      - name: Test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
