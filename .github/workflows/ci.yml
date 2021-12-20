@@ -22,8 +22,10 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           skip-go-installation: true
+          working-directory: ${{env.working-directory}}
       - name: Test
         run: make test
+        working-directory: ${{env.working-directory}}
   rust:
     runs-on: ubuntu-latest
     env:
@@ -45,3 +47,4 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: test
+          args: --manifest-path ./rust/aoc/Cargo.toml
