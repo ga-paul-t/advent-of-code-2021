@@ -22,7 +22,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solve() {
+    fn test_example() {
         let input = r"199
 200
 208
@@ -34,6 +34,11 @@ mod tests {
 260
 263";
         assert_eq!(solve(input), 7);
+    }
+
+    #[test]
+    fn test_puzzle() {
+        assert_eq!(run(), 1298);
     }
 
     #[bench]

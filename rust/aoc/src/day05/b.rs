@@ -63,7 +63,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solve() {
+    fn test_example() {
         let input = r"0,9 -> 5,9
 8,0 -> 0,8
 9,4 -> 3,4
@@ -75,6 +75,11 @@ mod tests {
 0,0 -> 8,8
 5,5 -> 8,2";
         assert_eq!(solve(input, 10), 12);
+    }
+
+    #[test]
+    fn test_puzzle() {
+        assert_eq!(run(), 22083);
     }
 
     #[bench]

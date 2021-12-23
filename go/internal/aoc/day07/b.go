@@ -27,7 +27,7 @@ func (p PuzzleB) Run() int {
 	}
 
 	// Due to rounding around the mean, sample both bounds and return the smallest total
-	mean = int(float64(sum) / float64(len(hpos)))
+	mean = sum / len(hpos)
 
 	dists := [2]int{}
 	calculateDist := func(m int) int {

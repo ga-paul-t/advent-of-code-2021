@@ -3,10 +3,11 @@ package day05
 import (
 	"testing"
 
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPuzzleB_WithSample(t *testing.T) {
+func TestPuzzleB_Example(t *testing.T) {
 	// Sample data from: https://adventofcode.com/2021/day/5
 	input = `0,9 -> 5,9
 8,0 -> 0,8
@@ -23,6 +24,17 @@ func TestPuzzleB_WithSample(t *testing.T) {
 	res := puz.Run()
 
 	assert.Equal(t, 12, res)
+}
+
+func TestPuzzleB(t *testing.T) {
+	GridSize = 1000
+
+	input = aoc.ReadInputFile()
+
+	puz := PuzzleB{}
+	res := puz.Run()
+
+	assert.Equal(t, 22083, res)
 }
 
 func Benchmark_PuzzleB(b *testing.B) {
