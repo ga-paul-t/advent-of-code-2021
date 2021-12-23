@@ -30,7 +30,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solve() {
+    fn test_example() {
         let input = r"forward 5
 down 5
 forward 8
@@ -38,6 +38,11 @@ up 3
 down 8
 forward 2";
         assert_eq!(solve(input), 900);
+    }
+
+    #[test]
+    fn test_puzzle() {
+        assert_eq!(run(), 1975421260);
     }
 
     #[bench]

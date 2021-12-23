@@ -32,9 +32,14 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solve() {
+    fn test_example() {
         let input = "3,4,3,1,2";
         assert_eq!(solve(input, 256), 26984457539);
+    }
+
+    #[test]
+    fn test_puzzle() {
+        assert_eq!(run(), 1590327954513);
     }
 
     #[bench]

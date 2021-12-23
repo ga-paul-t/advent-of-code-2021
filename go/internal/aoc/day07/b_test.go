@@ -1,4 +1,4 @@
-package day02
+package day07
 
 import (
 	"testing"
@@ -8,18 +8,13 @@ import (
 )
 
 func TestPuzzleB_Example(t *testing.T) {
-	// Sample data from: https://adventofcode.com/2021/day/2
-	input = `forward 5
-down 5
-forward 8
-up 3
-down 8
-forward 2`
+	// Sample data from: https://adventofcode.com/2021/day/7
+	input = "16,1,2,0,4,2,7,1,2,14"
 
 	puz := PuzzleB{}
 	res := puz.Run()
 
-	assert.Equal(t, 900, res)
+	assert.Equal(t, 168, res)
 }
 
 func TestPuzzleB(t *testing.T) {
@@ -28,7 +23,7 @@ func TestPuzzleB(t *testing.T) {
 	puz := PuzzleB{}
 	res := puz.Run()
 
-	assert.Equal(t, 1975421260, res)
+	assert.Equal(t, 86397080, res)
 }
 
 func Benchmark_PuzzleB(b *testing.B) {
