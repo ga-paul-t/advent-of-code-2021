@@ -1,6 +1,6 @@
 pub fn run() -> usize {
     let input = include_str!("./input.txt");
-    return solve(input, 256)
+    return solve(input, 80)
 }
 
 fn solve(input: &str, days: usize) -> usize {
