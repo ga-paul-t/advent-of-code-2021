@@ -8,6 +8,7 @@ pub mod day04;
 pub mod day05;
 pub mod day06;
 pub mod day07;
+pub mod day08;
 
 pub fn jobs() -> &'static [(fn() -> usize, &'static str)] {
     &[
@@ -24,6 +25,8 @@ pub fn jobs() -> &'static [(fn() -> usize, &'static str)] {
         (day06::a::run, "06a"),
         (day06::b::run, "06b"),
         (day07::a::run, "07a"),
-        (day07::b::run, "07b")
+        (day07::b::run, "07b"),
+        (day08::a::run, "08a"),
+        (day08::b::run, "08b")
     ]
 }
