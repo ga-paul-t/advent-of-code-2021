@@ -32,7 +32,7 @@ func TestPuzzleB(t *testing.T) {
 	puz := PuzzleB{}
 	res := puz.Run()
 
-	assert.Equal(t, 86397080, res)
+	assert.Equal(t, 994266, res)
 }
 
 func Benchmark_PuzzleB(b *testing.B) {

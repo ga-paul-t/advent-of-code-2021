@@ -16,14 +16,15 @@ MacBook Pro (2019)
 Both puzzles were run 200 times and the fastest time was recorded as:
 
 - Part A: **0.071ms**
-- Part B: **0.019ms**
+- Part B: **0.147ms**
 
 ```sh
 $ aoc-2021 --benchmark --puzzle 8
 
 🎄 Advent of Code 2021 - Benchmark [executions: 200]
 
-🧩 Puzzle 08a: 543 [time taken: 71.645µs]
+🧩 Puzzle 08a: 543    [time taken: 71.823µs]
+🧩 Puzzle 08b: 994266 [time taken: 147.948µs]
 ```
 
 ## Go Benchmark
@@ -45,13 +46,13 @@ ok  	github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day08	2.112s
 Puzzle B:
 
 ```sh
-$ go test -benchmem -run=^$ -bench ^Benchmark_PuzzleB$ github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day07
+$ go test -benchmem -run=^$ -bench ^Benchmark_PuzzleB$ github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day08
 
 goos: darwin
 goarch: amd64
-pkg: github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day07
+pkg: github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day08
 cpu: Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz
-Benchmark_PuzzleB-16    	   53695	     22601 ns/op	   24576 B/op	       2 allocs/op
+Benchmark_PuzzleB-16    	    7410	    161542 ns/op	   54400 B/op	     601 allocs/op
 PASS
-ok  	github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day07	1.560s
+ok  	github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day08	2.342s
 ```
