@@ -34,7 +34,7 @@ var (
 		{day06.PuzzleA{}, day06.PuzzleB{}},
 		{day07.PuzzleA{}, day07.PuzzleB{}},
 		{day08.PuzzleA{}, day08.PuzzleB{}},
-		{day09.PuzzleA{}},
+		{day09.PuzzleA{}, day09.PuzzleB{}},
 	}
 )
 

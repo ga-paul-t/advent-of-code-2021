@@ -2,30 +2,39 @@ package day09
 
 import (
 	"testing"
+
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc"
+	"github.com/stretchr/testify/assert"
 )
 
-// func TestPuzzleB_Example(t *testing.T) {
-// 	// Sample data from: https://adventofcode.com/2021/day/9
-// 	input = `2199943210
-// 3987894921
-// 9856789892
-// 8767896789
-// 9899965678`
+func TestPuzzleB_Example(t *testing.T) {
+	GridSizeX = 10
+	GridSizeY = 5
 
-// 	puz := PuzzleB{}
-// 	res := puz.Run()
+	// Sample data from: https://adventofcode.com/2021/day/9
+	input = `2199943210
+3987894921
+9856789892
+8767896789
+9899965678`
 
-// 	assert.Equal(t, 61229, res)
-// }
+	puz := PuzzleB{}
+	res := puz.Run()
 
-// func TestPuzzleB(t *testing.T) {
-// 	input = aoc.ReadInputFile()
+	assert.Equal(t, 1134, res)
+}
 
-// 	puz := PuzzleB{}
-// 	res := puz.Run()
+func TestPuzzleB(t *testing.T) {
+	GridSizeX = 100
+	GridSizeY = 100
 
-// 	assert.Equal(t, 994266, res)
-// }
+	input = aoc.ReadInputFile()
+
+	puz := PuzzleB{}
+	res := puz.Run()
+
+	assert.Equal(t, 1045660, res)
+}
 
 func Benchmark_PuzzleB(b *testing.B) {
 	p := PuzzleB{}
