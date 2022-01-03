@@ -16,6 +16,7 @@ import (
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day06"
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day07"
 	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day08"
+	"github.com/ga-paul-t/advent-of-code-2021/internal/aoc/day09"
 	"github.com/spf13/cobra"
 )
 
@@ -33,6 +34,7 @@ var (
 		{day06.PuzzleA{}, day06.PuzzleB{}},
 		{day07.PuzzleA{}, day07.PuzzleB{}},
 		{day08.PuzzleA{}, day08.PuzzleB{}},
+		{day09.PuzzleA{}, day09.PuzzleB{}},
 	}
 )
 
